@@ -24,6 +24,15 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.csaba79coder</groupId>
+                <artifactId>api-first-development</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <scm>
         <developerConnection>scm:git:git@github.com:Csaba79-coder/api-first-development</developerConnection>
         <tag>HEAD</tag>
