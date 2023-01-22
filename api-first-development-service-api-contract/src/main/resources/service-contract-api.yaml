@@ -8,33 +8,175 @@ info:
 servers:
   - url: 'http://localhost:8080'
 paths:
-  /library/books:
-    get:
-      summary: This is summary
+  /books:
+    put:
       tags:
-        - "Library"
-      description: This is a description
-      operationId: getAllBooksInLibrary
+        - book
+      summary: Update an existing book
+      description: Update an existing book by Id
+      operationId: updateBook
+      requestBody:
+        description: Update an existent book in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
       responses:
-        "200":
-          description: This means its ok
+        '200':
+          description: Successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
-
+                $ref: '#/components/schemas/Book'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Book not found
+        '405':
+          description: Validation exception
+    post:
+      tags:
+        - book
+      summary: Add a new book to the store
+      description: Add a new book to the store
+      operationId: addBook
+      requestBody:
+        description: Create a new book in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '405':
+          description: Invalid input
+  /books/{bookId}:
+    get:
+      tags:
+        - book
+      summary: Find book by ID
+      description: Returns a single book
+      operationId: getBookById
+      parameters:
+        - name: bookId
+          in: path
+          description: ID of book to return
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Book not found
+    delete:
+      tags:
+        - book
+      summary: Deletes a book
+      description: delete a book
+      operationId: deleteBook
+      parameters:
+        - name: api_key
+          in: header
+          description: ''
+          required: false
+          schema:
+            type: string
+        - name: bookId
+          in: path
+          description: ID of book to return
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '204':
+          description: successful operation
 components:
   schemas:
     Book:
-      description: This is the book model
       type: object
       properties:
-        name:
-          description: The name of book
+        id:
+          description: Id of book entity
           type: string
-        bookAuthor:
-          description: name of author
+          format: uuid
+          example: '3a8ea9f1-1a95-4caf-932f-2f988052933b'
+        createdBy:
+          description: User id who created book entity
           type: string
-  
+          format: uuid
+          example: '3a8ea9f1-1a95-4caf-932f-2f988052933b'
+        updatedBy:
+          description: User id who updated book entity
+          type: string
+          format: uuid
+          example: '3a8ea9f1-1a95-4caf-932f-2f988052933b'
+        createdAt:
+          description: Creation time of book entity
+          type: string
+          format: timestamp
+          example: '2019-01-21T05:47:08.644'
+        updatedAt:
+          description: Updated time of book entity
+          type: string
+          format: timestamp
+          example: '2019-01-21T05:47:08.644'
+        title:
+          description: Title of book entity
+          type: string
+          example: 'Cat Among the Pigeons'
+        isbn:
+          description: ISBN number of the book (13 characters)
+          type: number
+          example: 9780671557003
+        genre:
+          description: Genre of the book entity
+          type: string
+          example: DETECTIVE_FICTION
+          enum:
+            - DETECTIVE FICTION
+            - NOVEL
+            - MYSTERY
+            - THRILLER
+            - HORROR
+            - HISTORICAL
+            - ROMANCE
+            - WESTERN
+            - BILDUNGSROMAN
+            - SCIENCE_FICTION
+            - FICTION
+            - FANTASY
+            - MAGICAL_REALISM
+            - REALIST_LITERATURE
+            - OTHER
+        status:
+          description: Status of the book
+          type: string
+          example: SOLD
+          enum:
+            - AVAILABLE
+            - PENDING
+            - SOLD
+        availability:
+          description: Status of book availability
+          type: string
+          example: AVAILABLE
+          enum:
+            - AVAILABLE
+            - ARCHIVE
+            - DELETED
