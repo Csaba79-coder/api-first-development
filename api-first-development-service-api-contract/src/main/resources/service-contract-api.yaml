@@ -1,0 +1,11 @@
+openapi: 3.0.3
+info:
+  title: API First Development
+  description: API First Development
+  version: 1.0.0
+  contact:
+    email: csabavadasz79@gmail.com
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  
