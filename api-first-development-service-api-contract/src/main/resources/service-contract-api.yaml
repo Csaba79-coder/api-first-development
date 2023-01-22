@@ -7,6 +7,9 @@ info:
     email: csabavadasz79@gmail.com
 servers:
   - url: 'http://localhost:8080'
+tags:
+  - name: book
+
 paths:
   /books:
     put:
