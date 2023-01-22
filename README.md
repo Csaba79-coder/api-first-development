@@ -1,5 +1,8 @@
+![img.png](img/img.png)
+
 # api-first-development i.e. Contract First Development
-Contract first development using Swagger API
+
+## Contract first development using Swagger API
 
 Part 1 - The Setup  (https://www.youtube.com/watch?v=69P7p...)
 
