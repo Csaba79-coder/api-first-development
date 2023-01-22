@@ -5,6 +5,7 @@ import com.csaba79coder.models.Book;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -16,7 +17,7 @@ public class BookController implements BooksApi {
     }
 
     @Override
-    public ResponseEntity<Void> deleteBook(UUID bookId, String apiKey) {
+    public ResponseEntity<Void> deleteBook(UUID bookId) {
         return null;
     }
 
@@ -26,7 +27,12 @@ public class BookController implements BooksApi {
     }
 
     @Override
-    public ResponseEntity<Book> updateBook(Book body) {
+    public ResponseEntity<List<Book>> renderAllBooks() {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Book> updateBook(UUID bookId) {
         return null;
     }
 }
