@@ -1,4 +1,4 @@
-![img.png](img/img.png)
+![img.png](img.png)
 
 # api-first-development i.e. Contract First Development
 
