@@ -3,12 +3,12 @@ package com.csaba79coder.apifirstdevelopment.controller;
 import com.csaba79coder.api.BooksApi;
 import com.csaba79coder.models.Book;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
 
-@Controller
+@RestController
 public class BookController implements BooksApi {
 
     @Override
