@@ -8,4 +8,33 @@ info:
 servers:
   - url: 'http://localhost:8080'
 paths:
+  /library/books:
+    get:
+      summary: This is summary
+      tags:
+        - "Library"
+      description: This is a description
+      operationId: getAllBooksInLibrary
+      responses:
+        "200":
+          description: This means its ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+components:
+  schemas:
+    Book:
+      description: This is the book model
+      type: object
+      properties:
+        name:
+          description: The name of book
+          type: string
+        bookAuthor:
+          description: name of author
+          type: string
   
