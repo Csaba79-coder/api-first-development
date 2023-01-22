@@ -32,7 +32,7 @@ public class BookController implements BooksApi {
     }
 
     @Override
-    public ResponseEntity<Book> updateBook(UUID bookId) {
+    public ResponseEntity<Book> updateBook(UUID bookId, Book body) {
         return null;
     }
 }

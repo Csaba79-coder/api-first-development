@@ -99,6 +99,13 @@ paths:
           schema:
             format: uuid
             type: string
+      requestBody:
+        description: Create a new book in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
       responses:
         '200':
           description: Successful operation
