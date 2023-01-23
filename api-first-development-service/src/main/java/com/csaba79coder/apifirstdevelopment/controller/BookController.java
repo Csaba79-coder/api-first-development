@@ -27,7 +27,8 @@ public class BookController implements BooksApi {
 
     @Override
     public ResponseEntity<Void> deleteBook(UUID bookId) {
-        return null;
+        bookService.deleteAnExistingBookById(bookId);
+        return ResponseEntity.status(204).build();
     }
 
     @Override
