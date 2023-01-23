@@ -2,7 +2,7 @@ package com.csaba79coder.apifirstdevelopment.util;
 
 public class ISBN13Validator {
 
-    public static boolean validISBN(Long isbnLong) {
+    public static boolean isValidISBN(Long isbnLong) {
         String isbn = String.valueOf(isbnLong);
         if (isbn == null) {
             return false;
