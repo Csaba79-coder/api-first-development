@@ -4,14 +4,14 @@
 
 ## Contract first development using Swagger API
 
-Part 1 - The Setup  (https://www.youtube.com/watch?v=69P7p...)
+Backend part of the project!
 
-Part 2 - Editing the YAML file (https://www.youtube.com/watch?v=TyWDJ...)
+Using: http://localhost:8080 for the project!
 
-Part 3 - POST requests (https://www.youtube.com/watch?v=vVoYT...)
+In service see as follows:
 
-Part 4 - Path Parameters (https://www.youtube.com/watch?v=TAVon...)
+Database in case of dev and prod: MyQL Server (environment variables set for project, pls. user your own!)
 
-Dependencies & plugin pastebin: https://pastebin.com/gdiMqhwW
+Variables: DB_PORT, DB_URL, DB_USER, DB_PASSWORD
 
-Yaml file pastebin: https://pastebin.com/GhKSVbaw
+In case of test: H2 in memory database used (see application.properties for setup under test folder)
