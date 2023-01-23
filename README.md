@@ -6,7 +6,7 @@
 
 ## Dependencies
 
-- Java Development Kit - JDK 11
+- Java Development Kit - JDK 17
 
 ## Backend
 
