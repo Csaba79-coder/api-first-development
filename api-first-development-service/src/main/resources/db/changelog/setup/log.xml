@@ -9,10 +9,10 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="date" type="date">
+            <column name="logged_at" type="datetime">
                 <constraints nullable="false"/>
             </column>
-            <column name="message" type="varchar">
+            <column name="log_message" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

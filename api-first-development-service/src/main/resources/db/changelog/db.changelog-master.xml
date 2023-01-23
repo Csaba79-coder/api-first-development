@@ -9,5 +9,6 @@
     </changeSet>
 
     <include file="/setup/book.xml" relativeToChangelogFile="true"/>
+    <include file="/setup/log.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
