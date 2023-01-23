@@ -9,6 +9,7 @@ servers:
   - url: 'http://localhost:8080'
 tags:
   - name: book
+  - name: log
 
 paths:
   /books:
@@ -136,6 +137,54 @@ paths:
       responses:
         '204':
           description: successful operation
+  /logs:
+    get:
+      tags:
+        - log
+      summary: Render all logs
+      description: Show all logs from database
+      operationId: renderAllLogs
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LogModel'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Book not found
+        '405':
+          description: Validation exception
+    post:
+      tags:
+        - log
+      summary: Add a new log to the database
+      description: Add a new log to the database
+      operationId: addLog
+      requestBody:
+        description: Create a new log in the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewLogModel'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogModel'
+        '405':
+          description: Invalid input
 
 components:
   schemas:
@@ -293,3 +342,29 @@ components:
             - AVAILABLE
             - ARCHIVE
             - DELETED
+    NewLogModel:
+      type: object
+      properties:
+        logMessage:
+          description: Log message
+          type: string
+          example: "{ERROR_CODE_001=Book with id: 4bc34bbf-6278-4586-9e62-429bc41edcf5 was not found}"
+          required:
+            - logMessage
+    LogModel:
+      type: object
+      properties:
+        id:
+          description: Id of log entity
+          type: string
+          format: uuid
+          example: '3a8ea9f1-1a95-4caf-932f-2f988052933b'
+        logMessage:
+          description: Log message
+          type: string
+          example: "{ERROR_CODE_001=Book with id: 4bc34bbf-6278-4586-9e62-429bc41edcf5 was not found}"
+        loggedAt:
+          description: Creation time of log
+          type: string
+          format: timestamp
+          example: '2019-01-21T05:47:08.644'
