@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0" author="admin">
+        <createTable tableName="book">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="created_by" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_by" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="bigint(13)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="genre" type="enum('DETECTIVE_FICTION', 'NOVEL', 'MYSTERY',
+            'THRILLER', 'HORROR', 'HISTORICAL', 'ROMANCE', 'WESTERN', 'BILDUNGSROMAN',
+            'SCIENCE_FICTION', 'FICTION', 'FANTASY', 'MAGICAL_REALISM', 'REALIST_LITERATURE', 'OTHER')">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="enum('AVAILABLE', 'PENDING', 'SOLD')">
+                <constraints nullable="false"/>
+            </column>
+            <column name="availability" type="enum('AVAILABLE', 'ARCHIVE', 'DELETED')">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
