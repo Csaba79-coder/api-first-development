@@ -1,7 +1,9 @@
 package com.csaba79coder.apifirstdevelopment.controller;
 
 import com.csaba79coder.api.BooksApi;
-import com.csaba79coder.models.Book;
+import com.csaba79coder.models.BookModel;
+import com.csaba79coder.models.ModifiedBookModel;
+import com.csaba79coder.models.NewBookModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,7 @@ import java.util.UUID;
 public class BookController implements BooksApi {
 
     @Override
-    public ResponseEntity<Book> addBook(Book body) {
+    public ResponseEntity<BookModel> addBook(NewBookModel body) {
         return null;
     }
 
@@ -24,17 +26,17 @@ public class BookController implements BooksApi {
     }
 
     @Override
-    public ResponseEntity<Book> getBookById(UUID bookId) {
+    public ResponseEntity<BookModel> getBookById(UUID bookId) {
         return null;
     }
 
     @Override
-    public ResponseEntity<List<Book>> renderAllBooks() {
+    public ResponseEntity<List<BookModel>> renderAllBooks() {
         return null;
     }
 
     @Override
-    public ResponseEntity<Book> updateBook(UUID bookId, Book body) {
+    public ResponseEntity<BookModel> updateBook(UUID bookId, ModifiedBookModel body) {
         return null;
     }
 }

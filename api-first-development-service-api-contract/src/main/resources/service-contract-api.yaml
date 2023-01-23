@@ -26,7 +26,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: '#/components/schemas/BookModel'
         '400':
           description: Bad request
         '401':
@@ -48,7 +48,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Book'
+              $ref: '#/components/schemas/NewBookModel'
         required: true
       responses:
         '201':
@@ -56,7 +56,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/BookModel'
         '405':
           description: Invalid input
   /books/{bookId}:
@@ -80,7 +80,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/BookModel'
         '400':
           description: Invalid ID supplied
         '404':
@@ -104,7 +104,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Book'
+              $ref: '#/components/schemas/ModifiedBookModel'
         required: true
       responses:
         '200':
@@ -112,7 +112,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/BookModel'
         '400':
           description: Invalid ID supplied
         '404':
@@ -139,7 +139,42 @@ paths:
 
 components:
   schemas:
-    Book:
+    NewBookModel:
+      type: object
+      properties:
+        title:
+          description: Title of book entity
+          type: string
+          example: 'Cat Among the Pigeons'
+        isbn:
+          description: ISBN number of the book (13 characters)
+          type: number
+          example: 9780671557003
+        genre:
+          description: Genre of the book entity
+          type: string
+          example: DETECTIVE_FICTION
+          enum:
+            - DETECTIVE FICTION
+            - NOVEL
+            - MYSTERY
+            - THRILLER
+            - HORROR
+            - HISTORICAL
+            - ROMANCE
+            - WESTERN
+            - BILDUNGSROMAN
+            - SCIENCE_FICTION
+            - FICTION
+            - FANTASY
+            - MAGICAL_REALISM
+            - REALIST_LITERATURE
+            - OTHER
+          required:
+            - title
+            - isbn
+            - genre
+    BookModel:
       type: object
       properties:
         id:
@@ -167,6 +202,53 @@ components:
           type: string
           format: timestamp
           example: '2019-01-21T05:47:08.644'
+        title:
+          description: Title of book entity
+          type: string
+          example: 'Cat Among the Pigeons'
+        isbn:
+          description: ISBN number of the book (13 characters)
+          type: number
+          example: 9780671557003
+        genre:
+          description: Genre of the book entity
+          type: string
+          example: DETECTIVE_FICTION
+          enum:
+            - DETECTIVE FICTION
+            - NOVEL
+            - MYSTERY
+            - THRILLER
+            - HORROR
+            - HISTORICAL
+            - ROMANCE
+            - WESTERN
+            - BILDUNGSROMAN
+            - SCIENCE_FICTION
+            - FICTION
+            - FANTASY
+            - MAGICAL_REALISM
+            - REALIST_LITERATURE
+            - OTHER
+        status:
+          description: Status of the book
+          type: string
+          example: SOLD
+          enum:
+            - AVAILABLE
+            - PENDING
+            - SOLD
+        availability:
+          description: Status of book availability
+          type: string
+          example: AVAILABLE
+          enum:
+            - AVAILABLE
+            - ARCHIVE
+            - DELETED
+    ModifiedBookModel:
+      type: object
+      properties:
         title:
           description: Title of book entity
           type: string
