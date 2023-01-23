@@ -12,6 +12,6 @@ In service see as follows:
 
 Database in case of dev and prod: MyQL Server (environment variables set for project, pls. user your own!)
 
-Variables: DB_PORT, DB_URL, DB_USER, DB_PASSWORD
+Environment Variables as follows: DB_PORT, DB_URL, DB_USER, DB_PASSWORD
 
 In case of test: H2 in memory database used (see application.properties for setup under test folder)
