@@ -7,4 +7,7 @@
     <changeSet id="0" author="admin">
 
     </changeSet>
+
+    <include file="/setup/book.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>
