@@ -14,6 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.Where;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -42,7 +43,7 @@ public class Book extends BaseEntity {
     private String title;
 
     @Column(name = "isbn", nullable = false, unique = true, length = 13)
-    private Long isbn;
+    private BigDecimal isbn;
 
     @Column(name = "genre", nullable = false)
     @Enumerated(EnumType.STRING)

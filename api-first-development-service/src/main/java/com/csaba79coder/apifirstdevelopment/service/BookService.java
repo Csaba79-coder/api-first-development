@@ -3,11 +3,13 @@ package com.csaba79coder.apifirstdevelopment.service;
 import com.csaba79coder.apifirstdevelopment.entity.Book;
 import com.csaba79coder.apifirstdevelopment.persistence.BookRepository;
 import com.csaba79coder.models.BookModel;
+import com.csaba79coder.models.ModifiedBookModel;
 import com.csaba79coder.models.NewBookModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
@@ -31,5 +33,17 @@ public class BookService {
                     return new NoSuchElementException(message);
                 });
         bookRepository.delete(book);
+    }
+
+    public BookModel getBookById(UUID id) {
+        return null;
+    }
+
+    public List<BookModel> renderAllBooks() {
+        return null;
+    }
+
+    public BookModel updateAnExistingBook(UUID id, ModifiedBookModel modifyBook) {
+        return null;
     }
 }
