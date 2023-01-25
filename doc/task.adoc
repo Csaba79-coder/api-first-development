@@ -21,3 +21,14 @@ Yaml file pastebin: https://pastebin.com/GhKSVbaw
 == Liquibase changeLog
 
 https://www.baeldung.com/liquibase-refactor-schema-of-java-app
+
+'''
+
+== MapStruct and ModelMapper
+
+https://mapstruct.org/
+
+https://modelmapper.org/examples/
+
+https://www.baeldung.com/java-modelmapper
+
