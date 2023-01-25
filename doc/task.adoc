@@ -15,3 +15,9 @@ Part 4 - Path Parameters (https://www.youtube.com/watch?v=TAVon...)
 Dependencies & plugin pastebin: https://pastebin.com/gdiMqhwW
 
 Yaml file pastebin: https://pastebin.com/GhKSVbaw
+
+'''
+
+== Liquibase changeLog
+
+https://www.baeldung.com/liquibase-refactor-schema-of-java-app
