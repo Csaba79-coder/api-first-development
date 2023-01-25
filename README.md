@@ -28,5 +28,5 @@
 |--------------------|--------------|-------------------|----------------------------------------------------------|
 | DB_PORT            | 3306         | default           |                                                          |
 | DB_URL             | no such info | pls use your own!       |                                                          |
-| DB_USER            | root         | default           |                                                          |
+| DB_USER            | root         | default           | pls use your own if you have set any other                     |
 | DB_PASSWORD        | no such info | pls use your own! | [MYSQL Installation Guide](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/) |
