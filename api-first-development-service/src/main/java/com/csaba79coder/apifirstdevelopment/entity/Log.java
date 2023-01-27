@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 import jdk.jfr.Timestamp;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -25,4 +26,8 @@ public class Log extends BaseEntity {
 
     @Column(name = "log_message")
     private String logMessage;
+
+    public Log(@NonNull String message) {
+        logMessage = message;
+    }
 }
