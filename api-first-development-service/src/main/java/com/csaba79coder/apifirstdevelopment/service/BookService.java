@@ -28,7 +28,7 @@ public class BookService {
     private Log systemLog;
 
     public BookModel addNewBook(NewBookModel newModel) {
-        if (newModel.getIsbn() == null || !ISBN13Validator.isValidISBN(newModel.getIsbn())
+        if (!ISBN13Validator.isValidISBN(newModel.getIsbn())
                 || newModel.getTitle().isEmpty() || newModel.getTitle().isBlank()
                 || newModel.getGenre() == null) {
             String message = String.format("Please represent a valid isbn input, isbn: %s is not valid!", newModel.getIsbn());
@@ -42,18 +42,13 @@ public class BookService {
     }
 
     public void deleteAnExistingBookById(UUID id) {
-        Book book = bookRepository.findBookById(id)
-                .orElseThrow(() -> {
-                    String message = String.format("Book with id: %s was not found", id);
-                    systemLog = new Log(message);
-                    logRepository.save(systemLog);
-                    log.info(message);
-                    return new NoSuchElementException(message);
-                });
+        Book book = findById(id);
         bookRepository.delete(book);
     }
 
     public BookModel getBookById(UUID id) {
+        Book book = findById(id);
+        bookRepository.delete(book);
         return null;
     }
 
@@ -63,5 +58,16 @@ public class BookService {
 
     public BookModel updateAnExistingBook(UUID id, ModifiedBookModel modifyBook) {
         return null;
+    }
+
+    private Book findById(UUID id) {
+       return bookRepository.findBookById(id)
+                .orElseThrow(() -> {
+                    String message = String.format("Book with id: %s was not found", id);
+                    systemLog = new Log(message);
+                    logRepository.save(systemLog);
+                    log.info(message);
+                    return new NoSuchElementException(message);
+                });
     }
 }
