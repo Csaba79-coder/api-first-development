@@ -22,7 +22,7 @@ public class BookController implements BooksApi {
 
     @Override
     public ResponseEntity<BookModel> addBook(NewBookModel body) {
-        return null;
+        return ResponseEntity.status(201).body(bookService.addNewBook(body));
     }
 
     @Override
