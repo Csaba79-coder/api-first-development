@@ -17,6 +17,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -53,7 +54,9 @@ public class BookService {
     }
 
     public List<BookModel> renderAllBooks() {
-        return null;
+        return bookRepository.findAll()
+                .stream().map(Mapper::mapBookEntityToBookModel)
+                .collect(Collectors.toList());
     }
 
     public BookModel updateAnExistingBook(UUID id, ModifiedBookModel modifyBook) {

@@ -38,7 +38,7 @@ public class BookController implements BooksApi {
 
     @Override
     public ResponseEntity<List<BookModel>> renderAllBooks() {
-        return null;
+        return ResponseEntity.status(200).body(bookService.renderAllBooks());
     }
 
     @Override
