@@ -204,7 +204,7 @@ components:
           type: string
           example: DETECTIVE_FICTION
           enum:
-            - DETECTIVE FICTION
+            - DETECTIVE_FICTION
             - NOVEL
             - MYSTERY
             - THRILLER
@@ -311,7 +311,7 @@ components:
           type: string
           example: DETECTIVE_FICTION
           enum:
-            - DETECTIVE FICTION
+            - DETECTIVE_FICTION
             - NOVEL
             - MYSTERY
             - THRILLER
